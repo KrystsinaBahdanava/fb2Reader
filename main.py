@@ -7,7 +7,6 @@ import collections
 import re
 import sqlite3
 from sqlite3 import Error
-import timeit
 
 
 # Class provides functionality to search for fb2 files
@@ -33,7 +32,6 @@ class Fb2Reader:
     @logger.catch()
     def __incorrect_file_removal(self):  # private
         file_list = {file for file in glob.glob("*.*") if file not in glob.glob("*.fb2")}
-        path_parent = os.path.dirname(os.getcwd())
         os.chdir(os.path.dirname(os.getcwd()))
         if not os.path.exists('./incorrect_input'):
             os.makedirs('./incorrect_input')
@@ -54,6 +52,7 @@ class FileService:
         # if we want to count all the paragraphs (all <p> elements)
         for __ in elem_tree.iter('{http://www.gribuser.ru/xml/fictionbook/2.0}p'):
             cnt_par_all += 1
+        logger.debug("Number of paragraphs: " + str(cnt_par_all))
         return cnt_par_all
 
     @logger.catch()
@@ -166,14 +165,6 @@ class DBWriter:
             logger.error(e)
 
     @logger.catch()
-    def check_book_availability(self, conn, find_book_sql):
-        try:
-            c = conn.cursor()
-            c.execute(find_book_sql)
-        except Error as e:
-            logger.error(e)
-
-    @logger.catch()
     def create_words_frequency_table(self, conn, book_name, word_dict):
         sql_create_projects_table = """ CREATE TABLE IF NOT EXISTS '%s' (
                                                     word text,
@@ -190,8 +181,6 @@ class DBWriter:
 
         # insert data
         try:
-            columns = ', '.join("`" + str(x).replace('/', '_') + "`" for x in word_dict.keys())
-            values = ', '.join("'" + str(x).replace('/', '_') + "'" for x in word_dict.values())
             c = conn.cursor()
             row = c.execute(" SELECT 1 from '%s'" % book_name).fetchone()
             if not row:
@@ -205,7 +194,6 @@ class DBWriter:
     @logger.catch()
     def insert_books(self, book_name, paragraph_cnt, word_count, letters_count, words_with_capital_letter,
                      words_with_lowercase_letter, conn):
-        rows_count = 0
         sql_create_projects_table = """ CREATE TABLE IF NOT EXISTS Books (
                                             book_name text,
                                             number_of_paragraphs integer, 
@@ -252,7 +240,7 @@ def main():
     reader = Fb2Reader()
     writer = DBWriter()
 
-    conn = writer.create_connection(r"C:\sqlite\db\DQEMentoringProgram.db")
+    conn = writer.create_connection("DQEMentoringProgram.db")
 
     for fb2_file in reader.fb2_file_search():
         tree = reader.parse_fb2(fb2_file)
