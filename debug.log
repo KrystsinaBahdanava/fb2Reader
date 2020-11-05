@@ -1,4 +1,4 @@
-2020-11-05T11:57:18.111713+0300 INFO ------------------------------------
+2020-11-05T11:57:18.111713+0300 INFO ------------------------------------r
 2020-11-05T11:57:18.124706+0300 INFO Application started
 2020-11-05T11:57:18.124706+0300 INFO ------------------------------------
 2020-11-05T11:57:18.133705+0300 INFO Connection to the database is established.
@@ -76,7 +76,7 @@ Traceback (most recent call last):
     |      |            |          |              |           -> '49309'
     |      |            |          |              -> '7994'
     |      |            |          -> '176'
-    |      |            -> 'Ñîíåò 17 Óèëüÿì Øåêñïèð. - ëèò. ïåðåâîä Ñâàìè Ðàíèíàíäà'
+    |      |            -> 'Ã‘Ã®Ã­Ã¥Ã² 17 Ã“Ã¨Ã«Ã¼Ã¿Ã¬ Ã˜Ã¥ÃªÃ±Ã¯Ã¨Ã°. - Ã«Ã¨Ã². Ã¯Ã¥Ã°Ã¥Ã¢Ã®Ã¤ Ã‘Ã¢Ã Ã¬Ã¨ ÃÃ Ã­Ã¨Ã­Ã Ã­Ã¤Ã '
     |      -> <function DBWriter.insert_books at 0x0000028223E28040>
     -> <__main__.DBWriter object at 0x0000028223E78A00>
 
@@ -95,8 +95,8 @@ Traceback (most recent call last):
 
 > File "C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader/main.py", line 258, in main
     writer.create_words_frequency_table(conn, book_name, words_dict)
-    |      |                            |     |          -> {'ñîíåò': [21, 11], '17': [21, 21], 'óèëüÿì': [33, 33], 'øåêñïèð': [50, 50], 'ëèò': [1, 0], 'ïåðåâîä': [10, 3], 'ñâàìè': [5, ...
-    |      |                            |     -> 'Ñîíåò 17 Óèëüÿì Øåêñïèð. - ëèò. ïåðåâîä Ñâàìè Ðàíèíàíäà'
+    |      |                            |     |          -> {'Ã±Ã®Ã­Ã¥Ã²': [21, 11], '17': [21, 21], 'Ã³Ã¨Ã«Ã¼Ã¿Ã¬': [33, 33], 'Ã¸Ã¥ÃªÃ±Ã¯Ã¨Ã°': [50, 50], 'Ã«Ã¨Ã²': [1, 0], 'Ã¯Ã¥Ã°Ã¥Ã¢Ã®Ã¤': [10, 3], 'Ã±Ã¢Ã Ã¬Ã¨': [5, ...
+    |      |                            |     -> 'Ã‘Ã®Ã­Ã¥Ã² 17 Ã“Ã¨Ã«Ã¼Ã¿Ã¬ Ã˜Ã¥ÃªÃ±Ã¯Ã¨Ã°. - Ã«Ã¨Ã². Ã¯Ã¥Ã°Ã¥Ã¢Ã®Ã¤ Ã‘Ã¢Ã Ã¬Ã¨ ÃÃ Ã­Ã¨Ã­Ã Ã­Ã¤Ã '
     |      |                            -> None
     |      -> <function DBWriter.create_words_frequency_table at 0x0000028223E22CA0>
     -> <__main__.DBWriter object at 0x0000028223E78A00>
@@ -121,7 +121,7 @@ Traceback (most recent call last):
     |      |            |          |              |           -> '309276'
     |      |            |          |              -> '62898'
     |      |            |          -> '2267'
-    |      |            -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |            -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      -> <function DBWriter.insert_books at 0x0000028223E28040>
     -> <__main__.DBWriter object at 0x0000028223E78A00>
 
@@ -140,8 +140,8 @@ Traceback (most recent call last):
 
 > File "C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader/main.py", line 258, in main
     writer.create_words_frequency_table(conn, book_name, words_dict)
-    |      |                            |     |          -> {'íàó÷íîôàíòàñòè÷åñêèé': [1, 1], 'ðîìàí': [6, 0], 'àìåðèêàíñêîãî': [1, 0], 'ïèñàòåëÿ': [1, 0], 'äàíèýëà': [2, 2], 'êèçà': [2,...
-    |      |                            |     -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |                            |     |          -> {'Ã­Ã Ã³Ã·Ã­Ã®Ã´Ã Ã­Ã²Ã Ã±Ã²Ã¨Ã·Ã¥Ã±ÃªÃ¨Ã©': [1, 1], 'Ã°Ã®Ã¬Ã Ã­': [6, 0], 'Ã Ã¬Ã¥Ã°Ã¨ÃªÃ Ã­Ã±ÃªÃ®Ã£Ã®': [1, 0], 'Ã¯Ã¨Ã±Ã Ã²Ã¥Ã«Ã¿': [1, 0], 'Ã¤Ã Ã­Ã¨Ã½Ã«Ã ': [2, 2], 'ÃªÃ¨Ã§Ã ': [2,...
+    |      |                            |     -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      |                            -> None
     |      -> <function DBWriter.create_words_frequency_table at 0x0000028223E22CA0>
     -> <__main__.DBWriter object at 0x0000028223E78A00>
@@ -166,7 +166,7 @@ Traceback (most recent call last):
     |      |            |          |              |           -> '309276'
     |      |            |          |              -> '62898'
     |      |            |          -> '2267'
-    |      |            -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |            -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      -> <function DBWriter.insert_books at 0x0000028223E28040>
     -> <__main__.DBWriter object at 0x0000028223E78A00>
 
@@ -185,8 +185,8 @@ Traceback (most recent call last):
 
 > File "C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader/main.py", line 258, in main
     writer.create_words_frequency_table(conn, book_name, words_dict)
-    |      |                            |     |          -> {'íàó÷íîôàíòàñòè÷åñêèé': [1, 1], 'ðîìàí': [6, 0], 'àìåðèêàíñêîãî': [1, 0], 'ïèñàòåëÿ': [1, 0], 'äàíèýëà': [2, 2], 'êèçà': [2,...
-    |      |                            |     -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |                            |     |          -> {'Ã­Ã Ã³Ã·Ã­Ã®Ã´Ã Ã­Ã²Ã Ã±Ã²Ã¨Ã·Ã¥Ã±ÃªÃ¨Ã©': [1, 1], 'Ã°Ã®Ã¬Ã Ã­': [6, 0], 'Ã Ã¬Ã¥Ã°Ã¨ÃªÃ Ã­Ã±ÃªÃ®Ã£Ã®': [1, 0], 'Ã¯Ã¨Ã±Ã Ã²Ã¥Ã«Ã¿': [1, 0], 'Ã¤Ã Ã­Ã¨Ã½Ã«Ã ': [2, 2], 'ÃªÃ¨Ã§Ã ': [2,...
+    |      |                            |     -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      |                            -> None
     |      -> <function DBWriter.create_words_frequency_table at 0x0000028223E22CA0>
     -> <__main__.DBWriter object at 0x0000028223E78A00>
@@ -238,7 +238,7 @@ Traceback (most recent call last):
     |      |            |          |              |           -> '309276'
     |      |            |          |              -> '62898'
     |      |            |          -> '2267'
-    |      |            -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |            -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      -> <function DBWriter.insert_books at 0x000001D9043E8040>
     -> <__main__.DBWriter object at 0x000001D904438A00>
 
@@ -257,8 +257,8 @@ Traceback (most recent call last):
 
 > File "C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader/main.py", line 258, in main
     writer.create_words_frequency_table(conn, book_name, words_dict)
-    |      |                            |     |          -> {'íàó÷íîôàíòàñòè÷åñêèé': [1, 1], 'ðîìàí': [6, 0], 'àìåðèêàíñêîãî': [1, 0], 'ïèñàòåëÿ': [1, 0], 'äàíèýëà': [2, 2], 'êèçà': [2,...
-    |      |                            |     -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |                            |     |          -> {'Ã­Ã Ã³Ã·Ã­Ã®Ã´Ã Ã­Ã²Ã Ã±Ã²Ã¨Ã·Ã¥Ã±ÃªÃ¨Ã©': [1, 1], 'Ã°Ã®Ã¬Ã Ã­': [6, 0], 'Ã Ã¬Ã¥Ã°Ã¨ÃªÃ Ã­Ã±ÃªÃ®Ã£Ã®': [1, 0], 'Ã¯Ã¨Ã±Ã Ã²Ã¥Ã«Ã¿': [1, 0], 'Ã¤Ã Ã­Ã¨Ã½Ã«Ã ': [2, 2], 'ÃªÃ¨Ã§Ã ': [2,...
+    |      |                            |     -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      |                            -> None
     |      -> <function DBWriter.create_words_frequency_table at 0x000001D9043E2CA0>
     -> <__main__.DBWriter object at 0x000001D904438A00>
@@ -283,7 +283,7 @@ Traceback (most recent call last):
     |      |            |          |              |           -> '309276'
     |      |            |          |              -> '62898'
     |      |            |          -> '2267'
-    |      |            -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |            -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      -> <function DBWriter.insert_books at 0x000001D9043E8040>
     -> <__main__.DBWriter object at 0x000001D904438A00>
 
@@ -302,8 +302,8 @@ Traceback (most recent call last):
 
 > File "C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader/main.py", line 258, in main
     writer.create_words_frequency_table(conn, book_name, words_dict)
-    |      |                            |     |          -> {'íàó÷íîôàíòàñòè÷åñêèé': [1, 1], 'ðîìàí': [6, 0], 'àìåðèêàíñêîãî': [1, 0], 'ïèñàòåëÿ': [1, 0], 'äàíèýëà': [2, 2], 'êèçà': [2,...
-    |      |                            |     -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |                            |     |          -> {'Ã­Ã Ã³Ã·Ã­Ã®Ã´Ã Ã­Ã²Ã Ã±Ã²Ã¨Ã·Ã¥Ã±ÃªÃ¨Ã©': [1, 1], 'Ã°Ã®Ã¬Ã Ã­': [6, 0], 'Ã Ã¬Ã¥Ã°Ã¨ÃªÃ Ã­Ã±ÃªÃ®Ã£Ã®': [1, 0], 'Ã¯Ã¨Ã±Ã Ã²Ã¥Ã«Ã¿': [1, 0], 'Ã¤Ã Ã­Ã¨Ã½Ã«Ã ': [2, 2], 'ÃªÃ¨Ã§Ã ': [2,...
+    |      |                            |     -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      |                            -> None
     |      -> <function DBWriter.create_words_frequency_table at 0x000001D9043E2CA0>
     -> <__main__.DBWriter object at 0x000001D904438A00>
@@ -328,7 +328,7 @@ Traceback (most recent call last):
     |      |            |          |              |           -> '49309'
     |      |            |          |              -> '7994'
     |      |            |          -> '176'
-    |      |            -> 'Ñîíåò 17 Óèëüÿì Øåêñïèð. - ëèò. ïåðåâîä Ñâàìè Ðàíèíàíäà'
+    |      |            -> 'Ã‘Ã®Ã­Ã¥Ã² 17 Ã“Ã¨Ã«Ã¼Ã¿Ã¬ Ã˜Ã¥ÃªÃ±Ã¯Ã¨Ã°. - Ã«Ã¨Ã². Ã¯Ã¥Ã°Ã¥Ã¢Ã®Ã¤ Ã‘Ã¢Ã Ã¬Ã¨ ÃÃ Ã­Ã¨Ã­Ã Ã­Ã¤Ã '
     |      -> <function DBWriter.insert_books at 0x000001D9043E8040>
     -> <__main__.DBWriter object at 0x000001D904438A00>
 
@@ -347,8 +347,8 @@ Traceback (most recent call last):
 
 > File "C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader/main.py", line 258, in main
     writer.create_words_frequency_table(conn, book_name, words_dict)
-    |      |                            |     |          -> {'ñîíåò': [21, 11], '17': [21, 21], 'óèëüÿì': [33, 33], 'øåêñïèð': [50, 50], 'ëèò': [1, 0], 'ïåðåâîä': [10, 3], 'ñâàìè': [5, ...
-    |      |                            |     -> 'Ñîíåò 17 Óèëüÿì Øåêñïèð. - ëèò. ïåðåâîä Ñâàìè Ðàíèíàíäà'
+    |      |                            |     |          -> {'Ã±Ã®Ã­Ã¥Ã²': [21, 11], '17': [21, 21], 'Ã³Ã¨Ã«Ã¼Ã¿Ã¬': [33, 33], 'Ã¸Ã¥ÃªÃ±Ã¯Ã¨Ã°': [50, 50], 'Ã«Ã¨Ã²': [1, 0], 'Ã¯Ã¥Ã°Ã¥Ã¢Ã®Ã¤': [10, 3], 'Ã±Ã¢Ã Ã¬Ã¨': [5, ...
+    |      |                            |     -> 'Ã‘Ã®Ã­Ã¥Ã² 17 Ã“Ã¨Ã«Ã¼Ã¿Ã¬ Ã˜Ã¥ÃªÃ±Ã¯Ã¨Ã°. - Ã«Ã¨Ã². Ã¯Ã¥Ã°Ã¥Ã¢Ã®Ã¤ Ã‘Ã¢Ã Ã¬Ã¨ ÃÃ Ã­Ã¨Ã­Ã Ã­Ã¤Ã '
     |      |                            -> None
     |      -> <function DBWriter.create_words_frequency_table at 0x000001D9043E2CA0>
     -> <__main__.DBWriter object at 0x000001D904438A00>
@@ -400,7 +400,7 @@ Traceback (most recent call last):
     |      |            |          |              |           -> '309276'
     |      |            |          |              -> '62898'
     |      |            |          -> '2267'
-    |      |            -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |            -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      -> <function DBWriter.insert_books at 0x0000021876158040>
     -> <__main__.DBWriter object at 0x00000218761A8A00>
 
@@ -419,8 +419,8 @@ Traceback (most recent call last):
 
 > File "C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader/main.py", line 258, in main
     writer.create_words_frequency_table(conn, book_name, words_dict)
-    |      |                            |     |          -> {'íàó÷íîôàíòàñòè÷åñêèé': [1, 1], 'ðîìàí': [6, 0], 'àìåðèêàíñêîãî': [1, 0], 'ïèñàòåëÿ': [1, 0], 'äàíèýëà': [2, 2], 'êèçà': [2,...
-    |      |                            |     -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |                            |     |          -> {'Ã­Ã Ã³Ã·Ã­Ã®Ã´Ã Ã­Ã²Ã Ã±Ã²Ã¨Ã·Ã¥Ã±ÃªÃ¨Ã©': [1, 1], 'Ã°Ã®Ã¬Ã Ã­': [6, 0], 'Ã Ã¬Ã¥Ã°Ã¨ÃªÃ Ã­Ã±ÃªÃ®Ã£Ã®': [1, 0], 'Ã¯Ã¨Ã±Ã Ã²Ã¥Ã«Ã¿': [1, 0], 'Ã¤Ã Ã­Ã¨Ã½Ã«Ã ': [2, 2], 'ÃªÃ¨Ã§Ã ': [2,...
+    |      |                            |     -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      |                            -> None
     |      -> <function DBWriter.create_words_frequency_table at 0x0000021876152CA0>
     -> <__main__.DBWriter object at 0x00000218761A8A00>
@@ -445,7 +445,7 @@ Traceback (most recent call last):
     |      |            |          |              |           -> '49309'
     |      |            |          |              -> '7994'
     |      |            |          -> '176'
-    |      |            -> 'Ñîíåò 17 Óèëüÿì Øåêñïèð. - ëèò. ïåðåâîä Ñâàìè Ðàíèíàíäà'
+    |      |            -> 'Ã‘Ã®Ã­Ã¥Ã² 17 Ã“Ã¨Ã«Ã¼Ã¿Ã¬ Ã˜Ã¥ÃªÃ±Ã¯Ã¨Ã°. - Ã«Ã¨Ã². Ã¯Ã¥Ã°Ã¥Ã¢Ã®Ã¤ Ã‘Ã¢Ã Ã¬Ã¨ ÃÃ Ã­Ã¨Ã­Ã Ã­Ã¤Ã '
     |      -> <function DBWriter.insert_books at 0x0000021876158040>
     -> <__main__.DBWriter object at 0x00000218761A8A00>
 
@@ -464,8 +464,8 @@ Traceback (most recent call last):
 
 > File "C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader/main.py", line 258, in main
     writer.create_words_frequency_table(conn, book_name, words_dict)
-    |      |                            |     |          -> {'ñîíåò': [21, 11], '17': [21, 21], 'óèëüÿì': [33, 33], 'øåêñïèð': [50, 50], 'ëèò': [1, 0], 'ïåðåâîä': [10, 3], 'ñâàìè': [5, ...
-    |      |                            |     -> 'Ñîíåò 17 Óèëüÿì Øåêñïèð. - ëèò. ïåðåâîä Ñâàìè Ðàíèíàíäà'
+    |      |                            |     |          -> {'Ã±Ã®Ã­Ã¥Ã²': [21, 11], '17': [21, 21], 'Ã³Ã¨Ã«Ã¼Ã¿Ã¬': [33, 33], 'Ã¸Ã¥ÃªÃ±Ã¯Ã¨Ã°': [50, 50], 'Ã«Ã¨Ã²': [1, 0], 'Ã¯Ã¥Ã°Ã¥Ã¢Ã®Ã¤': [10, 3], 'Ã±Ã¢Ã Ã¬Ã¨': [5, ...
+    |      |                            |     -> 'Ã‘Ã®Ã­Ã¥Ã² 17 Ã“Ã¨Ã«Ã¼Ã¿Ã¬ Ã˜Ã¥ÃªÃ±Ã¯Ã¨Ã°. - Ã«Ã¨Ã². Ã¯Ã¥Ã°Ã¥Ã¢Ã®Ã¤ Ã‘Ã¢Ã Ã¬Ã¨ ÃÃ Ã­Ã¨Ã­Ã Ã­Ã¤Ã '
     |      |                            -> None
     |      -> <function DBWriter.create_words_frequency_table at 0x0000021876152CA0>
     -> <__main__.DBWriter object at 0x00000218761A8A00>
@@ -490,7 +490,7 @@ Traceback (most recent call last):
     |      |            |          |              |           -> '309276'
     |      |            |          |              -> '62898'
     |      |            |          -> '2267'
-    |      |            -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |            -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      -> <function DBWriter.insert_books at 0x0000021876158040>
     -> <__main__.DBWriter object at 0x00000218761A8A00>
 
@@ -509,8 +509,8 @@ Traceback (most recent call last):
 
 > File "C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader/main.py", line 258, in main
     writer.create_words_frequency_table(conn, book_name, words_dict)
-    |      |                            |     |          -> {'íàó÷íîôàíòàñòè÷åñêèé': [1, 1], 'ðîìàí': [6, 0], 'àìåðèêàíñêîãî': [1, 0], 'ïèñàòåëÿ': [1, 0], 'äàíèýëà': [2, 2], 'êèçà': [2,...
-    |      |                            |     -> 'Öâåòû äëÿ Ýëäæåðíîíà'
+    |      |                            |     |          -> {'Ã­Ã Ã³Ã·Ã­Ã®Ã´Ã Ã­Ã²Ã Ã±Ã²Ã¨Ã·Ã¥Ã±ÃªÃ¨Ã©': [1, 1], 'Ã°Ã®Ã¬Ã Ã­': [6, 0], 'Ã Ã¬Ã¥Ã°Ã¨ÃªÃ Ã­Ã±ÃªÃ®Ã£Ã®': [1, 0], 'Ã¯Ã¨Ã±Ã Ã²Ã¥Ã«Ã¿': [1, 0], 'Ã¤Ã Ã­Ã¨Ã½Ã«Ã ': [2, 2], 'ÃªÃ¨Ã§Ã ': [2,...
+    |      |                            |     -> 'Ã–Ã¢Ã¥Ã²Ã» Ã¤Ã«Ã¿ ÃÃ«Ã¤Ã¦Ã¥Ã°Ã­Ã®Ã­Ã '
     |      |                            -> None
     |      -> <function DBWriter.create_words_frequency_table at 0x0000021876152CA0>
     -> <__main__.DBWriter object at 0x00000218761A8A00>
