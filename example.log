@@ -1,4 +1,4 @@
-DEBUG:root:This message should go to the log filer
+DEBUG:root:This message should go to the log filerds
 WARNING:root:And this, too
 INFO:root:Fb2Reader object is created
 INFO:root:FileService object is created
