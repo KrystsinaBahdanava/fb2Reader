@@ -1120,4 +1120,228 @@ where &quot;count&quot;&lt;&quot;count_uppercase&quot;
 </samplerData>
 </sample>
 
+<sample t="276" it="0" lt="275" ct="271" ts="1604670725436" s="true" lb="Check if Books table is populated" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="11" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">count(*)
+2
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select count(*) from Books
+
+
+</samplerData>
+</sample>
+<sample t="1" it="0" lt="1" ct="0" ts="1604670725724" s="true" lb="Check number of rows in Books" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="11" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">count(*)
+2
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select count(*) from Books
+
+</samplerData>
+</sample>
+<sample t="1" it="0" lt="0" ct="0" ts="1604670725726" s="true" lb="Check number of paragraphs" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="26" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">number_of_paragraphs
+2267
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select number_of_paragraphs from Books
+where book_name like &quot;Цветы для Элджернона&quot;
+
+</samplerData>
+</sample>
+<sample t="0" it="0" lt="0" ct="0" ts="1604670725780" s="false" lb="Check number of words" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="22" sby="0" sc="1" ec="1" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">number_of_words
+62898
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select number_of_words from Books
+where book_name like &quot;Цветы для Элджернона&quot;
+
+</samplerData>
+</sample>
+<sample t="1" it="0" lt="1" ct="0" ts="1604670725792" s="true" lb="Check for duplicates" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="11" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">count(*)
+0
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select count(*) from
+(
+select book_name, count(*) cnt
+from Books
+group by book_name
+having count(*) &gt; 1
+)t
+
+
+</samplerData>
+</sample>
+<sample t="0" it="0" lt="0" ct="0" ts="1604670725794" s="true" lb="Check number of letters" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="25" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>JSR223 Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">number_of_letters
+309276
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select number_of_letters from Books
+where book_name like &quot;Цветы для Элджернона&quot;
+
+</samplerData>
+</sample>
+<sample t="1" it="0" lt="0" ct="0" ts="1604670725805" s="true" lb="Check data types" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="11" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">count(*)
+0
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select count(*)
+from Books
+where typeof(number_of_letters) not in (&apos;integer&apos;, &apos;real&apos;)
+
+</samplerData>
+</sample>
+<sample t="1" it="0" lt="1" ct="0" ts="1604670725806" s="true" lb="Check if personal tables are created for all books" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="11" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">count(*)
+0
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select count(*) from Books
+where book_name not in 
+(SELECT name FROM sqlite_master
+WHERE type=&apos;table&apos;
+ORDER BY name)
+
+</samplerData>
+</sample>
+<sample t="1" it="0" lt="0" ct="0" ts="1604670725808" s="true" lb="Select all books" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="147" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">book_name
+Сонет 17 Уильям Шекспир. - лит. перевод Свами Ранинанда
+Цветы для Элджернона
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select book_name from Books
+
+</samplerData>
+</sample>
+<sample t="7" it="0" lt="4" ct="0" ts="1604670725809" s="true" lb="Check if personal table is not empty" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="14" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">count(*)
+3563
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select count(*) from &quot;Сонет 17 Уильям Шекспир. - лит. перевод Свами Ранинанда&quot;
+
+</samplerData>
+</sample>
+<sample t="1" it="0" lt="1" ct="0" ts="1604670725817" s="true" lb="Check word frequency correctness" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="11" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">count(*)
+0
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select count(*) from &quot;Сонет 17 Уильям Шекспир. - лит. перевод Свами Ранинанда&quot;
+where &quot;count&quot;&lt;&quot;count_uppercase&quot;
+
+</samplerData>
+</sample>
+<sample t="6" it="0" lt="6" ct="1" ts="1604670725818" s="true" lb="Check if personal table is not empty" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="15" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">count(*)
+13013
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select count(*) from &quot;Цветы для Элджернона&quot;
+
+</samplerData>
+</sample>
+<sample t="1" it="0" lt="1" ct="0" ts="1604670725825" s="true" lb="Check word frequency correctness" rc="200" rm="OK" tn="AutomatedTestingHW2 1-1" dt="text" de="UTF-8" by="11" sby="0" sc="1" ec="0" ng="1" na="1" hn="EPBYMINW5910">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <responseHeader class="java.lang.String">shared:false, driver:org.sqlite.JDBC, url:jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db, user:null</responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String">count(*)
+0
+</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] select count(*) from &quot;Цветы для Элджернона&quot;
+where &quot;count&quot;&lt;&quot;count_uppercase&quot;
+
+</samplerData>
+</sample>
+
 </testResults>
