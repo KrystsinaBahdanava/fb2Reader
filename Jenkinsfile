@@ -8,6 +8,8 @@ pipeline {
         }
         stage('test') {
             steps {
+                sh  'java -jar jenkins.war'
+                sh 'C:/Users/Krystsina_Bahdanava/Work/apache-jmeter-5.3/bin/jmeter.bat -n -t AutomatedTestingHW2.jmx -l testresults.xml'
                 dir('jmeter') {
                     sh "./mvnw clean install -DskipTests"
                     sh 'nohup ./mvnw spring-boot:run -Dserver.port=8989 &'
