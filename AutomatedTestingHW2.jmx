@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="AutomatedTestingHW2" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="table_name" elementType="Argument">
+              <stringProp name="Argument.name">table_name</stringProp>
+              <stringProp name="Argument.value">Books</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery"></stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="connectionProperties"></stringProp>
+          <stringProp name="dataSource">connection</stringProp>
+          <stringProp name="dbUrl">jdbc:sqlite:/sqlite/db/DQEMentoringProgram.db</stringProp>
+          <stringProp name="driver">org.sqlite.JDBC</stringProp>
+          <stringProp name="initQuery"></stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password"></stringProp>
+          <stringProp name="poolMax">0</stringProp>
+          <boolProp name="preinit">false</boolProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username"></stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Check if Books table is populated" enabled="true">
+          <stringProp name="dataSource">connection</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">select count(*) from ${table_name}
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames">result</stringProp>
+          <stringProp name="resultVariable">result</stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">12</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">result_1</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Books table is populated" enabled="true">
+          <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Check number of rows in Books" enabled="true">
+            <stringProp name="dataSource">connection</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select count(*) from ${table_name}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">result</stringProp>
+            <stringProp name="resultVariable">result</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+            <stringProp name="resultSetHandler">Store as Object</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="50">2</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">variable</stringProp>
+              <stringProp name="Scope.variable">result_1</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Check number of paragraphs" enabled="true">
+            <stringProp name="dataSource">connection</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select number_of_paragraphs from ${table_name}
+where book_name like &quot;Цветы для Элджернона&quot;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">result</stringProp>
+            <stringProp name="resultVariable">result</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+            <stringProp name="resultSetHandler">Store as Object</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters">result_1</stringProp>
+              <stringProp name="script">Integer my_var = vars.get(&quot;result_1&quot;);
+Float result = Float.valueOf(my_var);
+if (Math.abs((result - 2200)/2200) &gt; 0.1){
+    AssertionResult.setFailure(true);
+}</stringProp>
+              <stringProp name="scriptLanguage">java</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Check number of words" enabled="true">
+            <stringProp name="dataSource">connection</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select number_of_words from ${table_name}
+where book_name like &quot;Цветы для Элджернона&quot;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">result</stringProp>
+            <stringProp name="resultVariable">result</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+            <stringProp name="resultSetHandler">Store as Object</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters">result_1</stringProp>
+              <stringProp name="script">Integer my_var = vars.get(&quot;result_1&quot;);
+Float result = Float.valueOf(my_var);
+if (Math.abs((result - 1)/1) &gt; 0.1){
+    AssertionResult.setFailure(true);
+}</stringProp>
+              <stringProp name="scriptLanguage">java</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Check for duplicates" enabled="true">
+            <stringProp name="dataSource">connection</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select count(*) from
+(
+select book_name, count(*) cnt
+from ${table_name}
+group by book_name
+having count(*) &gt; 1
+)t
+</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">result</stringProp>
+            <stringProp name="resultVariable">result</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+            <stringProp name="resultSetHandler">Store as Object</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="48">0</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">variable</stringProp>
+              <stringProp name="Scope.variable">result_1</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Check number of letters" enabled="true">
+            <stringProp name="dataSource">connection</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select number_of_letters from ${table_name}
+where book_name like &quot;Цветы для Элджернона&quot;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">result</stringProp>
+            <stringProp name="resultVariable">result</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+            <stringProp name="resultSetHandler">Store as Object</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters">result_1</stringProp>
+              <stringProp name="script">Integer my_var = vars.get(&quot;result_1&quot;);
+Float result = Float.valueOf(my_var);
+if (Math.abs((result - 310000)/310000) &gt; 0.1){
+    AssertionResult.setFailure(true);
+}</stringProp>
+              <stringProp name="scriptLanguage">java</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Check data types" enabled="true">
+            <stringProp name="dataSource">connection</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select count(*)
+from ${table_name}
+where typeof(number_of_letters) not in (&apos;integer&apos;, &apos;real&apos;)</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">result</stringProp>
+            <stringProp name="resultVariable">result</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+            <stringProp name="resultSetHandler">Store as Object</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="48">0</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">variable</stringProp>
+              <stringProp name="Scope.variable">result_1</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Check if personal tables are created for all books" enabled="true">
+            <stringProp name="dataSource">connection</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select count(*) from ${table_name}
+where book_name not in 
+(SELECT name FROM sqlite_master
+WHERE type=&apos;table&apos;
+ORDER BY name)</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">result</stringProp>
+            <stringProp name="resultVariable">result</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+            <stringProp name="resultSetHandler">Store as Object</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="48">0</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+              <stringProp name="Assertion.scope">variable</stringProp>
+              <stringProp name="Scope.variable">result_1</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Book Personal tables are created" enabled="true">
+            <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">true</boolProp>
+          </IfController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Select all books" enabled="true">
+              <stringProp name="dataSource">connection</stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="query">select book_name from ${table_name}</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="variableNames">table_list</stringProp>
+              <stringProp name="resultVariable">table_list</stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="resultSetMaxRows"></stringProp>
+              <stringProp name="resultSetHandler">Store as Object</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach Book " enabled="true">
+              <stringProp name="ForeachController.inputVal">table_list</stringProp>
+              <stringProp name="ForeachController.returnVal">table_res</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+            </ForeachController>
+            <hashTree>
+              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Check if personal table is not empty" enabled="true">
+                <stringProp name="dataSource">connection</stringProp>
+                <stringProp name="queryType">Select Statement</stringProp>
+                <stringProp name="query">select count(*) from &quot;${table_res}&quot;</stringProp>
+                <stringProp name="queryArguments"></stringProp>
+                <stringProp name="queryArgumentsTypes"></stringProp>
+                <stringProp name="variableNames">res</stringProp>
+                <stringProp name="resultVariable">res</stringProp>
+                <stringProp name="queryTimeout"></stringProp>
+                <stringProp name="resultSetMaxRows"></stringProp>
+                <stringProp name="resultSetHandler">Store as Object</stringProp>
+              </JDBCSampler>
+              <hashTree>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="48">0</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">12</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">res_1</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Personal table is not empty" enabled="true">
+                <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+                <boolProp name="IfController.useExpression">true</boolProp>
+              </IfController>
+              <hashTree/>
+              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Check word frequency correctness" enabled="true">
+                <stringProp name="dataSource">connection</stringProp>
+                <stringProp name="queryType">Select Statement</stringProp>
+                <stringProp name="query">select count(*) from &quot;${table_res}&quot;
+where &quot;count&quot;&lt;&quot;count_uppercase&quot;</stringProp>
+                <stringProp name="queryArguments"></stringProp>
+                <stringProp name="queryArgumentsTypes"></stringProp>
+                <stringProp name="variableNames">result</stringProp>
+                <stringProp name="resultVariable">result</stringProp>
+                <stringProp name="queryTimeout"></stringProp>
+                <stringProp name="resultSetMaxRows"></stringProp>
+                <stringProp name="resultSetHandler">Store as Object</stringProp>
+              </JDBCSampler>
+              <hashTree>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="48">0</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">8</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">result_1</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>true</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">testresults.xml</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
