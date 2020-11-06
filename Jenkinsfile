@@ -8,8 +8,8 @@ pipeline {
         }
         stage('test') {
             steps {
-                dir ('C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader') {
-                    sh 'C:/Users/Krystsina_Bahdanava/Work/apache-jmeter-5.3/bin/jmeter.bat -n -t ./AutomatedTestingHW2.jmx -l ./testresults.xml'
+                dir('C:/Users/Krystsina_Bahdanava/Work/apache-jmeter-5.3/bin'){
+                    sh 'jmeter.bat -n -t AutomatedTestingHW2.jmx -l testresults.xml')
                 }
             }
         }
