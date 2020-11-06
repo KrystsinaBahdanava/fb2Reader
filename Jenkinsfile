@@ -8,19 +8,8 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh  'java -jar jenkins.war'
-                sh 'C:/Users/Krystsina_Bahdanava/Work/apache-jmeter-5.3/bin/jmeter.bat -n -t AutomatedTestingHW2.jmx -l testresults.xml'
-                dir('jmeter') {
-                    sh "./mvnw clean install -DskipTests"
-                    sh 'nohup ./mvnw spring-boot:run -Dserver.port=8989 &'
-                    sh "while ! httping -qc1
-                      http://localhost:8080 ; do sleep 1 ; done"
-
-                    sh "jmeter -Jjmeter.save.saveservice.output_format=xml
-                      -n -t AutomatedTestingHW2.jmx
-                        -l testresults.xml"
-                    step([$class: 'ArtifactArchiver', artifacts: 'JMeter.jtl'])
-                    sh "pid=\$(lsof -i:8989 -t); kill -TERM \$pid || kill -KILL \$pid"
+                dir ('C:/Users/Krystsina_Bahdanava/PycharmProjects/fb2Reader') {
+                    sh 'C:/Users/Krystsina_Bahdanava/Work/apache-jmeter-5.3/bin/jmeter.bat -n -t ./AutomatedTestingHW2.jmx -l ./testresults.xml'
                 }
             }
         }
