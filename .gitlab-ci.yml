@@ -13,3 +13,4 @@ Test:
   stage: Test
   script:
     - python main_test.py dev
+    - findstr Failed result.log
