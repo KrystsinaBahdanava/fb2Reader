@@ -4,10 +4,10 @@ before_script:
   - python --version
 # different stages in the pipeline
 stages:
-  - Static Analysis
   - Test
 #defines the job in Static Analysis
 pylint:
-  stage: Static Analysis
+  stage: Test
   script:
-  - pylint -d C0301 src/*.py
+    - cd C:/Users/Krystsina_Bahdanava/Work/apache-jmeter-5.3/bin
+    - jmeter.bat -n -t AutomatedTestingHW2.jmx -l testresults.xml
