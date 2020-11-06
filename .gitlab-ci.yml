@@ -4,8 +4,12 @@ before_script:
   - python --version
 # different stages in the pipeline
 stages:
+  - Build
   - Test
-pylint:
+Build:
+  stage: Build
+  script: echo 'Pipeline started'
+Test:
   stage: Test
   script:
     - python main_test.py dev
