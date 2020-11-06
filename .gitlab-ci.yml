@@ -8,4 +8,4 @@ stages:
 pylint:
   stage: Test
   script:
-    - python main_test.py
+    - python main_test.py dev
