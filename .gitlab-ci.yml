@@ -13,4 +13,5 @@ Test:
   stage: Test
   script:
     - python main_test.py dev
+    - cd results
     - findstr Failed result.log
