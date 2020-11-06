@@ -8,5 +8,4 @@ stages:
 pylint:
   stage: Test
   script:
-    - cd C:/Users/Krystsina_Bahdanava/Work/apache-jmeter-5.3/bin
-    - jmeter.bat -n -t AutomatedTestingHW2.jmx -l testresults.xml
+    - python main_test.py
