@@ -13,6 +13,8 @@ include:
 Build:
   stage: build
   script:
+    - pip install elementpath
+    - pip install loguru
     - python main.py
 
 code_quality:
