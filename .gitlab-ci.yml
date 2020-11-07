@@ -3,19 +3,6 @@ image: "python:3.8"
 stages:
   - build
   - test
-variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-
-cache:
-  untracked: true
-  key: "test"
-  paths:
-    - .cache/pip
-    - venv/
-
-
-include:
-  - template: Code-Quality.gitlab-ci.yml
 
 Build:
   stage: build
@@ -23,7 +10,6 @@ Build:
     - pip install elementpath
     - pip install loguru
     - python main.py
-
 
 before_script:
   - python --version
@@ -33,36 +19,11 @@ before_script:
 
 test:pylint:
   stage: test
-  image: python:3.6
+  image: python:3.8
+  allow_failure: true
   script:
       - pip install pylint --quiet
       - pylint --ignored-classes=_socketobject *.py
-pep8:
-  stage: test
-  artifacts:
-    paths:
-      - .cache/pip
-      - venv
-  script:
-    - flake8 --exclude='.git,venv,*migrations*,static/lib' .
-
-code_quality:
-  image: docker:stable
-  variables:
-    DOCKER_DRIVER: overlay2
-    SP_VERSION: 0.85.18
-  allow_failure: true
-  services:
-    - docker:stable-dind
-  script:
-    - docker run
-        --env SOURCE_CODE="$PWD"
-        --volume "$PWD":/code
-        --volume /var/run/docker.sock:/var/run/docker.sock
-        "registry.gitlab.com/gitlab-org/ci-cd/codequality:$SP_VERSION" /code
-  artifacts:
-    reports:
-      codequality: gl-code-quality-report.json
 
 Test:
   stage: test
