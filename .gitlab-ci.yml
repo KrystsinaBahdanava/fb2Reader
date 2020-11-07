@@ -14,4 +14,4 @@ Test:
   script:
     - python main_test.py dev
     - cd results
-    - if grep -q "Failed" result.log; then  echo grep "Failed"; exit 1; result.log; else echo "OK"; exit 0; fi
+    - if grep -q "Failed" result.log; then  echo grep "Failed" result.log; exit 1;  else echo "OK"; echo grep "Passed" result.log; exit 0; fi
