@@ -14,12 +14,12 @@ Build:
   stage: build
   script: echo 'Pipeline started..'
 
-code_quality:
+codequality:
   stage: test
   script: python main.py
   allow_failure: true
   artifacts:
-    paths: [gl-code-quality-report.json]
+    paths: [codeclimate.json]
 
 Test:
   stage: test
