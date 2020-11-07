@@ -14,4 +14,4 @@ Test:
   script:
     - python main_test.py dev
     - cd results
-    - findstr /c:"Failed" result.log
+    - if grep -q "Failed" result.log; then  echo grep "Failed"; exit 1; result.log; else echo "OK"; exit 0; fi
