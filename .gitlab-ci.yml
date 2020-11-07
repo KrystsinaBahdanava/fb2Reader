@@ -15,6 +15,7 @@ Code Quality:
   stage: Test
   artifacts:
     paths: [code-quality-report.json]
+    
 Test:
   stage: Test
   script:
