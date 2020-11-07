@@ -4,25 +4,25 @@ before_script:
   - python --version
 # different stages in the pipeline
 stages:
-  - Build
-  - Test
+  - build
+  - test
 
 include:
-  template: Jobs/Code-Quality.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
 
 Build:
-  stage: Build
+  stage: build
   script: echo 'Pipeline started..'
 
 code_quality:
-  stage: Test
+  stage: test
   script: python main.py
   allow_failure: true
   artifacts:
-    paths: [code-quality-report.json]
+    paths: [gl-code-quality-report.json]
 
 Test:
-  stage: Test
+  stage: test
   script:
     - python main_test.py dev
     - cd results
