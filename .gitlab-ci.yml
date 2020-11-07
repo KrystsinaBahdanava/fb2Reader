@@ -16,7 +16,9 @@ Build:
 
 code_quality:
   stage: test
-  script: python main.py
+  script:
+    - pip install loguru
+    - python main.py
   allow_failure: true
   artifacts:
     path: [codeclimate.json]
