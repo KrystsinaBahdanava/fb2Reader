@@ -12,7 +12,7 @@ include:
 
 Build:
   stage: Build
-  script: echo 'Pipeline started'
+  script: echo 'Pipeline started..'
 
 Code Quality:
   stage: Test
