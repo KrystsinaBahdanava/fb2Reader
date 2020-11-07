@@ -14,7 +14,7 @@ Build:
   stage: Build
   script: echo 'Pipeline started..'
 
-Code Quality:
+code_quality:
   stage: Test
   script: python main.py
   allow_failure: true
