@@ -21,7 +21,7 @@ code_quality:
     - python main.py
   allow_failure: true
   artifacts:
-    path: [codeclimate.json]
+    paths: [codeclimate.json]
 
 Test:
   stage: test
