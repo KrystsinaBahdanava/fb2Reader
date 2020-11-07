@@ -3,6 +3,16 @@ image: "python:3.8"
 stages:
   - build
   - test
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  untracked: true
+  key: "test"
+  paths:
+    - .cache/pip
+    - venv/
+
 
 include:
   - template: Code-Quality.gitlab-ci.yml
@@ -13,6 +23,23 @@ Build:
     - pip install elementpath
     - pip install loguru
     - python main.py
+
+
+before_script:
+  - python --version
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  - pip install -r requirements.txt
+
+pep8:
+  stage: test
+  artifacts:
+    paths:
+      - .cache/pip
+      - venv
+  script:
+    - flake8 --exclude='.git,venv,*migrations*,static/lib' .
 
 code_quality:
   image: docker:stable
