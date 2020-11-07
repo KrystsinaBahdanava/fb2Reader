@@ -6,9 +6,15 @@ before_script:
 stages:
   - Build
   - Test
+include:
+  template: Jobs/Code-Quality.gitlab-ci.yml
 Build:
   stage: Build
   script: echo 'Pipeline started'
+Code Quality:
+  stage: Test
+  artifacts:
+    paths: [code-quality-report.json]
 Test:
   stage: Test
   script:
