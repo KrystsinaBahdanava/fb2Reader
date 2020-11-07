@@ -12,7 +12,8 @@ include:
 
 Build:
   stage: build
-  script: echo 'Pipeline started..'
+  script:
+    - python main.py
 
 code_quality:
   stage: test
@@ -21,7 +22,7 @@ code_quality:
     - python main.py
   allow_failure: true
   artifacts:
-    paths: [gl-code-quality-report.json]
+    paths: [codequality.json, gl-code-quality-report.json]
 
 Test:
   stage: test
