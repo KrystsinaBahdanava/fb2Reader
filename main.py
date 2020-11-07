@@ -236,7 +236,7 @@ def main():
     logger.info('------------------------------------')
     logger.info('Application started')
     logger.info('------------------------------------')
-
+    a=3
     reader = Fb2Reader()
     writer = DBWriter()
 
