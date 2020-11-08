@@ -40,4 +40,6 @@ job:on-schedule:
     - schedules
   script:
     - echo "Release"
+    - git add .
+    - git commit -m 'Releasing branch'
     - git push origin release
