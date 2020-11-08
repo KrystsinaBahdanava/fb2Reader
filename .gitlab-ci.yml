@@ -40,3 +40,4 @@ job:on-schedule:
     - schedules
   script:
     - echo "Release"
+    - git push origin release
