@@ -43,6 +43,4 @@ job:on-schedule:
     - git config --global user.email kristinabg16@gmail.com
     - git config --global user.name "KrystsinaBahdanava"
     - git checkout master
-    - git add .
-    - git commit -m 'Releasing branch'
-    - git push
+    - git merge release
