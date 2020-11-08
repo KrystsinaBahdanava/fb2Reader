@@ -40,6 +40,8 @@ job:on-schedule:
     - schedules
   script:
     - echo "Release"
+    - git init
     - git add .
     - git commit -m 'Releasing branch'
-    - git push origin release
+    - git remote add origin "https://github.com/KrystsinaBahdanava/fb2Reader.git"
+    - git push -u origin release
