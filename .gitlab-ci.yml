@@ -44,4 +44,4 @@ job:on-schedule:
     - git config --global user.name "KrystsinaBahdanava"
     - git add .
     - git commit -m 'Releasing branch'
-    - git push  release
+    - git push origin master
