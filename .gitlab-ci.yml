@@ -43,6 +43,8 @@ job:on-schedule:
     - git init
     - git add .
     - git commit -m 'Releasing branch'
+    - git config --global user.email "kristinabg16@gmail.com"
+    - git config --global user.name "KrystsinaBahdanava"
     - git remote add origin "https://github.com/KrystsinaBahdanava/fb2Reader.git"
     - git config --global user.email "kristinabg16@gmail.com"
     - git config --global user.name "KrystsinaBahdanava"
