@@ -3,6 +3,7 @@ image: "python:3.8"
 stages:
   - build
   - test
+  - release
 
 Build:
   stage: build
@@ -31,3 +32,11 @@ Test:
     - python main_test.py dev
     - cd results
     - if grep -q "Failed" result.log; then  grep "Failed" result.log; exit 1;  else echo "OK";  grep "Passed" result.log; exit 0; fi
+
+
+job:on-schedule:
+  stage: release
+  only:
+    - schedules
+  script:
+    - echo "Release"
