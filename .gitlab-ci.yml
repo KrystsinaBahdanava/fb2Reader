@@ -42,6 +42,7 @@ job:on-schedule:
     - echo "Release"
     - git config --global user.email kristinabg16@gmail.com
     - git config --global user.name "KrystsinaBahdanava"
+    - git checkout -b release
     - git add .
     - git commit -m 'Releasing branch'
-    - git push -u origin release
+    - git push origin release
